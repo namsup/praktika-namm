@@ -1,0 +1,60 @@
+﻿<Window x:Class="MoscowTrafficRestriction.DesktopClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoscowTrafficRestriction.DesktopClient"
+        mc:Ignorable="d"
+        Title="InformationAboutParks" Height="450" Width="800">
+    <Grid TextBlock.FontFamily="Century Gothic" TextBlock.FontSize="14">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ListBox Grid.Column="0" Padding="5" Background="SkyBlue" Foreground="White" ItemsSource="{Binding TrafficRestrictions}" SelectedItem="{Binding CurrentTrafficRestriction}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock FontSize="14" TextWrapping="Wrap" Text="{Binding Path = NameOfManagingOrg}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1" DataContext="{Binding CurrentTrafficRestriction}">
+            <TextBlock FontSize="14" TextWrapping="Wrap" Text="{Binding Path = NameOfManagingOrg}"/>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="Year"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="{Binding Year}"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text=""></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="INN"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="{Binding INN}"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text=""></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="IssuedPrescriptions:"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="{Binding IssuedPrescriptions}"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text=""></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="ViolationsAmount:"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="{Binding ViolationsAmount}"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text=""></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="ProtocolsComposed"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="{Binding ProtocolsComposed}"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text=""></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="EventsExecuted:"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="{Binding EventsExecuted}"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text=""></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="EventsNotExecutedInTime:"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="{Binding EventsNotExecutedInTime}"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text=""></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="ProtocolsComposedForFailure:"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="{Binding ProtocolsComposedForFailure}"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text=""></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="SumOfFine"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="{Binding SumOfFine}"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text=""></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="global_id"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="{Binding global_id}"></TextBlock>
+        </StackPanel>
+    </Grid>
+
+</Window>
+
